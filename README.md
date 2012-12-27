@@ -10,6 +10,7 @@ for small amounts of fighting, and something for cops to still
 pursue other than guns. 
 
 Proposed Changes:
+
   *Removal of all guns (Should be Complete Commit 1)
   
   *Setting up a British style of Civil Protection. (no guns just stun sticks that will do minor damage)
