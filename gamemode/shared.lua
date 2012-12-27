@@ -22,7 +22,9 @@ TEAM_CITIZEN = AddExtraTeam("Citizen", {
 	},
 	description = [[The Citizen is the most basic level of society you can hold
 		besides being a hobo.
-		You have no specific role in city life.]],
+		You have no specific role in city life.
+		But a good bottle of booze always helps
+		modivate people. go find some!]],
 	weapons = {},
 	command = "citizen",
 	max = 0,
@@ -34,7 +36,11 @@ TEAM_CITIZEN = AddExtraTeam("Citizen", {
 
 TEAM_POLICE = AddExtraTeam("Civil Protection", {
 	color = Color(25, 25, 170, 255),
-	model = "models/player/police.mdl",
+	model = {
+		"models/JesseV92/player/cs-go/ct_gign.mdl",
+		"models/JesseV92/player/cs-go/ct_gsg9.mdl",
+		"models/JesseV92/player/cs-go/ct_sas.mdl"
+	},
 	description = [[The protector of every citizen that lives in the city .
 		You have the power to arrest criminals and protect innocents.
 		Hit them with your arrest baton to put them in jail
@@ -152,7 +158,7 @@ TEAM_COOK = AddExtraTeam("Cook", {
 
 TEAM_CHIEF = AddExtraTeam("Civil Protection Chief", {
 	color = Color(20, 20, 255, 255),
-	model = "models/player/combine_soldier_prisonguard.mdl",
+	model = "models/JesseV92/player/cs-go/ct_urban.mdl",
 	description = [[The Chief is the leader of the Civil Protection unit.
 		Coordinate the police forces to bring law to the city
 		Hit them with arrest baton to put them in jail

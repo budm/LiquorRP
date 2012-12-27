@@ -6,6 +6,14 @@ AddEntity("Big Moonshine Still",{
  cmd = "/buybigstill",
 })
 
+AddEntity("Small Moonshine Still",{
+ ent = "small_still",
+ model = "models/props_C17/FurnitureFireplace001.mdl",
+ price =50,
+ max = 2,
+ cmd = "/buysmallstill",
+})
+
 AddEntity("Toilet Wine",{
  ent = "toilet_wine",
  model = "models/props/CS_Militia/toilet.mdl",
