@@ -1,0 +1,13 @@
+VertexLitGeneric
+{
+$baseTexture "jessev92/player/cs-go/st6_upper"
+$bumpmap "jessev92/player/cs-go/st6_upper_normal"
+	"$normalmapalphaenvmapmask" 1
+	"$phong" 1
+	"$phongexponent"	"7"		// either/or
+	"$phongboost"		"1"
+	"$phongfresnelranges"	"[0.2 0.3 1.02]"
+	$rimlight               1
+	$rimlightexponent       2
+	$rimlightboost          .2
+}

@@ -1,0 +1,8 @@
+VertexLitGeneric
+{
+$baseTexture "jessev92/player/cs-go/st6_glasslens_yellow"
+$envmap env_cubemap
+$envmapmask "jessev92/player/cs-go/st6_glasslens_spec"
+$translucent 1
+$nocull 1
+}
