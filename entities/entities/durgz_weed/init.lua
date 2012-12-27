@@ -14,27 +14,13 @@ function ENT:High(activator,caller)
 	--enhance sound (not really like it but close enough as far as computers go)
 	activator:SetDSP(6);
 	--increase health
-	if( math.random(0,10) == 0 )then
-		activator:Ignite(5,0)
-		self:Say(activator, "FFFFFFUUUUUUUUUUUUUUUUUU")
-	else
+	
 		local health = activator:Health()
 		if( health * 3/2 < 500 )then
 			activator:SetHealth( math.floor(health * 3/2) )
 		else
 			activator:SetHealth( health + 50 )
-		end
-		
-		
-		local sayings = {
-			"does any1 hav goldfish!?1 i want goldfish plz thx",
-			"My eyes aren't red. What are you talking about?",
-			"duuuuuuuuuuudeeeeeeee",
-			"hi how do i type in chat i cant figure it out"
-		}
-		self:Say( activator, sayings[math.random(1,#sayings)] )
-		
-	end
+		end		
 end
 
 function ENT:AfterHigh(activator, caller)

@@ -8,8 +8,8 @@ ENT.MULTIPLY = 1
 ENT.LACED = {}
 
 --console commands
-CreateConVar( "durgz_witty_sayings", "1", { FCVAR_REPLICATED, FCVAR_ARCHIVE } )  --0 for no witty sayings when you take the drug 
-CreateConVar( "durgz_roleplay", "0", { FCVAR_REPLICATED, FCVAR_ARCHIVE } ) --set to 1 for none of those "special" side effects (like ultimate speed and really low gravity)
+CreateConVar( "durgz_witty_sayings", "0", { FCVAR_REPLICATED, FCVAR_ARCHIVE } )  --0 for no witty sayings when you take the drug 
+CreateConVar( "durgz_roleplay", "1", { FCVAR_REPLICATED, FCVAR_ARCHIVE } ) --set to 1 for none of those "special" side effects (like ultimate speed and really low gravity)
 
 function ENT:SpawnFunction( ply, tr ) 
    
@@ -129,13 +129,13 @@ end
 
 --this is pretty much a function you call if you want the person taking the drug to say something, all this function does is check if the console command is a ok.
 function ENT:Say(pl, s)
-	local bsool = server_settings.Bool( "durgz_witty_sayings", 0 )
-	if( s == "" )then return bsool; end
-	if( bsool )then
-		pl:ConCommand("say "..s);
-		return true;
-	end
-	return false;
+	--local bsool = server_settings.Bool( "durgz_witty_sayings", 0 )
+	--if( s == "" )then return bsool; end
+	--if( bsool )then
+	--	pl:ConCommand("say "..s);
+	--	return true;
+	--end
+	--return false;
 end
 
 function ENT:Realistic()
