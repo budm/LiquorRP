@@ -1,7 +1,7 @@
 AddCSLuaFile("shared.lua")
 include("shared.lua")
 
-ENT.MODEL = "models/katharsmodels/contraband/zak_wiet/zak_wiet.mdl"
+ENT.MODEL = "models/zak_wiet/zak_wiet.mdl"
 
 
 ENT.LASTINGEFFECT = 60; --how long the high lasts in seconds
@@ -15,6 +15,8 @@ function ENT:High(activator,caller)
 	activator:SetDSP(6);
 	--increase health
 	if( math.random(0,10) == 0 )then
+		activator:Ignite(5,0)
+		self:Say(activator, "FFFFFFUUUUUUUUUUUUUUUUUU")
 	else
 		local health = activator:Health()
 		if( health * 3/2 < 500 )then

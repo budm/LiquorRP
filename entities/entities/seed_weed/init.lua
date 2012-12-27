@@ -7,8 +7,17 @@ AddCSLuaFile("shared.lua")
 
 include("shared.lua")
 
+function ENT:SpawnFunction(ply, tr) -- Spawn function needed to make it appear on the spawn menu
+	if (!tr.HitWorld) then return end
+ 
+	local ent = ents.Create("seed_weed") -- Create the entity
+	ent:SetPos(tr.HitPos + Vector(0, 0, 50)) -- Set it to spawn 50 units over the spot you aim at when spawning it
+	ent:Spawn() -- Spawn it 
+		
+		return ent -- You need to return the entity to make it work
+end
 function ENT:Initialize()
-	self.Entity:SetModel("models/katharsmodels/contraband/zak_wiet/zak_seed.mdl")
+	self.Entity:SetModel("models/weapons/w_bugbait.mdl")
 	self.Entity:PhysicsInit(SOLID_VPHYSICS)
 	self.Entity:SetMoveType(MOVETYPE_VPHYSICS)
 	self.Entity:SetSolid(SOLID_VPHYSICS)

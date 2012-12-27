@@ -4,29 +4,39 @@ AddCSLuaFile("shared.lua")
 
 include("shared.lua")
 
-function ENT:Initialize()
+function ENT:SpawnFunction(ply, tr) -- Spawn function needed to make it appear on the spawn menu
+	if (!tr.HitWorld) then return end
+ 
+	local ent = ents.Create("weed_plant") -- Create the entity
+	ent:SetPos(tr.HitPos + Vector(0, 0, 50)) -- Set it to spawn 50 units over the spot you aim at when spawning it
+	ent:Spawn() -- Spawn it
+ 
+	return ent -- You need to return the entity to make it work
+end
 
+function ENT:Initialize()
+ 
 self.Entity:SetModel("models/nater/weedplant_pot_dirt.mdl")
+self.Entity:PhysicsInit( SOLID_VPHYSICS )      -- Make us work with physics,
+self.Entity:SetMoveType( MOVETYPE_VPHYSICS )   -- after all, gmod is a physics
+self.Entity:SetSolid( SOLID_VPHYSICS )         -- Toolbox
 
 self.Entity:PhysicsInit(SOLID_VPHYSICS)
 
-self.Entity:SetMoveType(MOVETYPE_VPHYSICS)
-
-self.Entity:SetSolid(SOLID_VPHYSICS)
-
-self.Entity:SetUseType(SIMPLE_USE)
-
 local phys = self.Entity:GetPhysicsObject()
 
-if phys and phys:IsValid() then phys:Wake() end
+local phys = self.Entity:GetPhysicsObject()
+if (phys:IsValid()) then
+		phys:Wake()
+	end
+ 
+self.Entity:SetNetworkedBool("Usable", false)
 
-self.Entity:SetNWBool("Usable", false)
-
-self.Entity:SetNWBool("Plantable", true)
+self.Entity:SetNetworkedBool("Plantable", true)
 
 self.damage = 10
 
-local ply = self.Entity:GetNWEntity("owning_ent")
+local ply = self.Entity:GetNetworkedEntity("owning_ent")
 
 end
 
@@ -56,11 +66,11 @@ end
 
 function ENT:Use()
 
-if self.Entity:GetNWBool("Usable") == true then
+if self.Entity:GetNetworkedBool("Usable") == true then
 
-self.Entity:SetNWBool("Usable", false)
+self.Entity:SetNetworkedBool("Usable", false)
 
-self.Entity:SetNWBool("Plantable", true)
+self.Entity:SetNetworkedBool("Plantable", true)
 
 self.Entity:SetModel("models/nater/weedplant_pot_dirt.mdl")
 
@@ -80,9 +90,9 @@ function ENT:Touch(hitEnt)
 
 if hitEnt:GetClass() == "seed_weed" then
 
-if self.Entity:GetNWBool("Plantable") == true then
+if self.Entity:GetNetworkedBool("Plantable") == true then
 
-self.Entity:SetNWBool("Plantable", false)
+self.Entity:SetNetworkedBool("Plantable", false)
 
 hitEnt:Remove()
 
@@ -128,7 +138,7 @@ timer.Create("Stage8_"..self:EntIndex(), 40, 1, function()
 
 self.Entity:SetModel("models/nater/weedplant_pot_growing7.mdl")
 
-self.Entity:SetNWBool("Usable", true)
+self.Entity:SetNetworkedBool("Usable", true)
 
 end)
 
@@ -140,7 +150,7 @@ end
 
 function ENT:OnRemove()
 
-if self.Entity:GetNWBool("Plantable") == false then
+if self.Entity:GetNetworkedBool("Plantable") == false then
 
 timer.Destroy("Stage2")
 

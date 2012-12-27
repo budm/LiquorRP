@@ -1,4 +1,4 @@
-AddEntity("Pot Plant",{ --Invisible still
+AddEntity("Pot Plant (INVISIBLE)",{
 ent = "weed_plant",
 model = "models/nater/weedplant_pot_planted.mdl",
 price = 75,
@@ -16,15 +16,13 @@ cmd = "/buyseed",
 allowed = {TEAM_DRUGDEALER}
 })
 
-AddEntity("Cell Phone",{
+AddEntity("Cell Phone (INVISIBLE)",{
  ent = "phone",
  model = "models/weapons/w_camphone.mdl",
  price =10,
  max = 1,
  cmd = "/buyphone",
 })
-
-
 
 AddEntity("Alcohol",{
  ent = "durgz_alcohol",

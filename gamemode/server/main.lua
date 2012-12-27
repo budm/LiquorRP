@@ -67,6 +67,10 @@ timer.Create("FlammableProps", 0.1, 0, FlammablePropThink)
  ---------------------------------------------------------*/
 local NoDrop = {} -- Drop blacklist
 local function DropWeapon(ply)
+if ply:Team() == TEAM_POLICE or ply:Team() == TEAM_CHIEF then
+		ply:ChatPrint("Cops can't drop their guns.")
+		return
+	end
 	local ent = ply:GetActiveWeapon()
 	if not IsValid(ent) then return "" end
 
@@ -566,84 +570,6 @@ local function SetPrice(ply, args)
 end
 AddChatCommand("/price", SetPrice)
 AddChatCommand("/setprice", SetPrice)
-
-local function BuyPistol(ply, args)
-	if args == "" then return "" end
-	if ply:isArrested() then return "" end
-
-	if not GAMEMODE.Config.enablebuypistol then
-		GAMEMODE:Notify(ply, 1, 4, string.format(LANGUAGE.disabled, "/buy", ""))
-		return ""
-	end
-	if GAMEMODE.Config.noguns then
-		GAMEMODE:Notify(ply, 1, 4, string.format(LANGUAGE.disabled, "/buy", ""))
-		return ""
-	end
-
-	local trace = {}
-	trace.start = ply:EyePos()
-	trace.endpos = trace.start + ply:GetAimVector() * 85
-	trace.filter = ply
-
-	local tr = util.TraceLine(trace)
-
-	local class = nil
-	local model = nil
-
-	local custom = false
-	local price = 0
-	for k,v in pairs(CustomShipments) do
-		if v.seperate and string.lower(v.name) == string.lower(args) then
-			custom = v
-			class = v.entity
-			model = v.model
-			price = v.pricesep
-			local canbuy = false
-
-			if not GAMEMODE.Config.restrictbuypistol or
-			(GAMEMODE.Config.restrictbuypistol and (not v.allowed[1] or table.HasValue(v.allowed, ply:Team()))) then
-				canbuy = true
-			end
-
-			if v.customCheck and not v.customCheck(ply) then
-				GAMEMODE:Notify(ply, 1, 4, "You're not allowed to purchase this item")
-				return ""
-			end
-
-			if not canbuy then
-				GAMEMODE:Notify(ply, 1, 4, string.format(LANGUAGE.incorrect_job, "/buy"))
-				return ""
-			end
-		end
-	end
-
-	if not class then
-		GAMEMODE:Notify(ply, 1, 4, string.format(LANGUAGE.unavailable, "weapon"))
-		return ""
-	end
-
-	if not ply:CanAfford(price) then
-		GAMEMODE:Notify(ply, 1, 4, string.format(LANGUAGE.cant_afford, "/buy"))
-		return ""
-	end
-
-	local weapon = ents.Create("spawned_weapon")
-	weapon:SetModel(model)
-	weapon.weaponclass = class
-	weapon.ShareGravgun = true
-	weapon:SetPos(tr.HitPos)
-	weapon.ammoadd = weapons.Get(class) and weapons.Get(class).Primary.DefaultClip
-	weapon.nodupe = true
-	weapon:Spawn()
-
-	if IsValid( weapon ) then
-		ply:AddMoney(-price)
-		GAMEMODE:Notify(ply, 0, 4, string.format(LANGUAGE.you_bought_x, args, tostring(price)))
-	end
-
-	return ""
-end
-AddChatCommand("/buy", BuyPistol)
 
 local function BuyShipment(ply, args)
 	if args == "" then return "" end
@@ -1269,7 +1195,7 @@ local function PlayerAdvertise(ply, args)
 		if text == "" then return end
 		for k,v in pairs(player.GetAll()) do
 			local col = team.GetColor(ply:Team())
-			GAMEMODE:TalkToPerson(v, col, LANGUAGE.advert .." "..ply:Nick(), Color(255,255,0,255), text, ply)
+			GAMEMODE:TalkToPerson(v, col, "ADVERT: ", Color(255,255,0,255), text, ply)
 		end
 	end
 	return args, DoSay
