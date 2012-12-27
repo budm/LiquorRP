@@ -17,7 +17,7 @@ function ENT:SpawnFunction(ply, tr) -- Spawn function needed to make it appear o
 		return ent -- You need to return the entity to make it work
 end
 function ENT:Initialize()
-	self.Entity:SetModel("models/weapons/w_bugbait.mdl")
+	self.Entity:SetModel("models/katharsmodels/contraband/zak_wiet/zak_seed.mdl")
 	self.Entity:PhysicsInit(SOLID_VPHYSICS)
 	self.Entity:SetMoveType(MOVETYPE_VPHYSICS)
 	self.Entity:SetSolid(SOLID_VPHYSICS)

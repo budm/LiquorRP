@@ -1,3 +1,7 @@
+------------------------------------------------------------
+  --------------      LiquorRP Entities      --------------
+   -------------------------------------------------------
+   
 AddEntity("Pot Plant (INVISIBLE)",{
 ent = "weed_plant",
 model = "models/nater/weedplant_pot_planted.mdl",
@@ -14,6 +18,14 @@ price = 150,
 max = 15,
 cmd = "/buyseed",
 allowed = {TEAM_DRUGDEALER}
+})
+
+AddEntity("Television",{
+ ent = "television",
+ model = "models/props/cs_office/TV_plasma.mdl",
+ price =100,
+ max = 1,
+ cmd = "/buytelevision",
 })
 
 AddEntity("Cell Phone (INVISIBLE)",{
@@ -71,6 +83,7 @@ AddEntity("Fermenation Bucket",{
  max = 10,
  cmd = "/buybucket",
 })
+
 AddEntity("Beer Barrel",{
  ent = "beer_barrel",
  model = "models/props_c17/woodbarrel001.mdl",
@@ -94,10 +107,10 @@ AddEntity("Pill lab", {
 	price = 400,
 	max = 3,
 	cmd = "/buypilllab",
-	allowed = {TEAM_DRUGDEALER}
+	allowed = TEAM_DRUGDEALER
 })
 
-AddEntity("Liquor Money Maker", {
+AddEntity("Money Maker", {
 	ent = "money_printer",
 	model = "models/props_c17/consolebox01a.mdl",
 	price = 1000,
@@ -108,19 +121,8 @@ AddEntity("Liquor Money Maker", {
 AddEntity("Microwave", {
 	ent = "microwave",
 	model = "models/props/cs_office/microwave.mdl",
-	price = 400,
+	price = 50,
 	max = 1,
 	cmd = "/buymicrowave",
-	allowed = TEAM_COOK
 })
 
---AddEntity("Gun lab", {
---	ent = "gunlab",
---	model = "models/props_c17/TrapPropeller_Engine.mdl",
---	price = 500,
---	max = 1,
---	cmd = "/buygunlab",
---	allowed = TEAM_GUN
---})
-
--- ADD CUSTOM SHIPMENTS HERE(next line):
