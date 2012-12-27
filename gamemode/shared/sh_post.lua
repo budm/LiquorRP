@@ -1,0 +1,21 @@
+AddRadioStation('94.3 The Buzz', 'http://www.181.fm/winamp.pls?station=181-buzz&style=mp3&description=The%20Buzz%20(Alt.%20Rock)');
+AddRadioStation('95.9 Extreme Metal', 'http://extreme-high.rautemusik.fm/listen.pls');
+AddRadioStation('96.8 Specific', 'http://specific.dk/normal.pls');
+AddRadioStation('97.7 The Hitz', 'http://977music.com/itunes/hitz.pls');
+AddRadioStation('98.5 The Mix', 'http://www.977music.com/itunes/mix.pls');
+AddRadioStation('98.8 Trance', 'http://scfire-mtc-aa05.stream.aol.com:80/stream/1003');
+AddRadioStation('99.9 Classical 102', 'http://classical102.com/listen.pls');
+AddRadioStation('102.1 Hot Jams', 'http://scfire-dtc-aa04.stream.aol.com:80/stream/1071');
+AddRadioStation("105.5 The Smooth Jazz", 'http://www.977music.com/itunes/jazz.pls');
+AddRadioStation('108.1 The Classic Rock', 'http://www.977music.com/itunes/classicrock.pls');
+AddRadioStation('108.6 The Eagle', 'http://216.155.137.150:10000');
+AddRadioStation('109.0 Fucking Magnets', 'http://scfire-ntc-aa04.stream.aol.com/stream/1004');
+AddRadioStation('109.8 Euro Dance Party', 'http://scfire-ntc-aa03.stream.aol.com:80/stream/1024');
+
+VideoProtocols = {};
+VideoProtocols[1] = 'http://www.livestream.com/newchannel/popoutplayer?channel=vidyavidya';
+VideoProtocols[2] = 'http://www.livestream.com/newchannel/popoutplayer?channel=trkradio';
+VideoProtocols[3] = 'http://www.livestream.com/newchannel/popoutplayer?channel=disneyweb_media_tunes';
+VideoProtocols[4] = 'http://www.livestream.com/newchannel/popoutplayer?channel=abcfilms';
+VideoProtocols[5] = 'http://www.livestream.com/newchannel/popoutplayer?channel=hollywoodclassics';
+VideoProtocols[6] = 'http://www.livestream.com/newchannel/popoutplayer?channel=nll';

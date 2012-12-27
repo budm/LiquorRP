@@ -2,7 +2,7 @@
 Default teams. If you make a team above the citizen team, people will spawn with that team!
 --------------------------------------------------------*/
 TEAM_CITIZEN = AddExtraTeam("Citizen", {
-	color = Color(20, 150, 20, 255),
+	color = Color(0, 255, 0, 255),
 	model = {
 		"models/player/Group01/Female_01.mdl",
 		"models/player/Group01/Female_02.mdl",
@@ -34,8 +34,8 @@ TEAM_CITIZEN = AddExtraTeam("Citizen", {
 	hasLicense = false
 })
 
-TEAM_POLICE = AddExtraTeam("Civil Protection", {
-	color = Color(25, 25, 170, 255),
+TEAM_POLICE = AddExtraTeam("Police", {
+	color = Color(0, 0, 255, 255),
 	model = {
 		"models/JesseV92/player/cs-go/ct_gign.mdl",
 		"models/JesseV92/player/cs-go/ct_gsg9.mdl",
@@ -53,7 +53,7 @@ TEAM_POLICE = AddExtraTeam("Civil Protection", {
 		OR go to tab and warrant someone by clicking the warrant button]],
 	weapons = {"arrest_stick", "unarrest_stick", "stunstick", "door_ram", "weaponchecker"},
 	command = "cp",
-	max = 4,
+	max = 12,
 	salary = 65,
 	admin = 0,
 	vote = true,
@@ -123,7 +123,7 @@ TEAM_GUN = AddExtraTeam("Bartender", {
 })
 
 TEAM_MEDIC = AddExtraTeam("Medic", {
-	color = Color(47, 79, 79, 255),
+	color = Color(255, 0, 255, 255),
 	model = "models/player/kleiner.mdl",
 	description = [[With your medical knowledge,
 		you heal players to proper
@@ -133,16 +133,16 @@ TEAM_MEDIC = AddExtraTeam("Medic", {
 		Right click with the Medical Kit to heal yourself.]],
 	weapons = {"med_kit"},
 	command = "medic",
-	max = 3,
+	max = 8,
 	salary = 45,
 	admin = 0,
 	vote = false,
 	hasLicense = false
 })
 
-TEAM_COOK = AddExtraTeam("Cook", {
+TEAM_COOK = AddExtraTeam("Cook", { --Marked for Removal
 	color = Color(238, 99, 99, 255),
-	model = "models/player/mossman.mdl",
+	model = "models/player/mossman.mdl", 
 	description = [[As a cook, it is your responsibility to feed the other members
 		of your city. Especially the Drunks...
 		You can spawn a microwave and sell the food you make:
@@ -179,7 +179,7 @@ TEAM_CHIEF = AddExtraTeam("Civil Protection Chief", {
 })
 
 TEAM_MAYOR = AddExtraTeam("Mayor", {
-	color = Color(150, 20, 20, 255),
+	color = Color(255, 0, 0, 255),
 	model = "models/player/breen.mdl",
 	description = [[The Mayor of the city creates laws to serve the greater good
 	of the people.
@@ -270,3 +270,56 @@ The default agenda's, can also be used as examples:
 */
 AddAgenda("Moonshiner's agenda", TEAM_MOB, {TEAM_GANG})
 AddAgenda("Police agenda", TEAM_MAYOR, {TEAM_CHIEF, TEAM_POLICE})
+
+
+--------------------------------------------------------
+-- Misc stuff for LiquorRP
+--------------------------------------------------------
+
+// Card values
+CARD_ACE = 1;
+CARD_2 = 2;
+CARD_3 = 3;
+CARD_4 = 4;
+CARD_5 = 5;
+CARD_6 = 6;
+CARD_7 = 7;
+CARD_8 = 8;
+CARD_9 = 9;
+CARD_10 = 10;
+CARD_JACK = 11;
+CARD_QUEEN = 12;
+CARD_KING = 13;
+
+// Card types
+CARD_DIAMOND = 13;
+CARD_HEART = 14;
+CARD_CLUB = 15;
+CARD_SPADE = 16;
+
+// Card counts
+GM.CardValues = {};
+GM.CardValues[CARD_ACE] = 11;
+GM.CardValues[CARD_2] = 2;
+GM.CardValues[CARD_3] = 3;
+GM.CardValues[CARD_4] = 4;
+GM.CardValues[CARD_5] = 5;
+GM.CardValues[CARD_6] = 6;
+GM.CardValues[CARD_7] = 7;
+GM.CardValues[CARD_8] = 8;
+GM.CardValues[CARD_9] = 9;
+GM.CardValues[CARD_10] = 10;
+GM.CardValues[CARD_JACK] = 10;
+GM.CardValues[CARD_QUEEN] = 10;
+GM.CardValues[CARD_KING] = 10;
+
+// Weather
+WEATHER_NORMAL = 1;
+WEATHER_SUNNY = 2;
+WEATHER_CLOUDY = 3;
+WEATHER_CLOUDY_REC = 4;
+//WEATHER_RAINY = 5;
+//WEATHER_STORMY = 6;
+//WEATHER_STORM = 6;
+//WEATHER_STORMY_PRE = 7;
+//WEATHER_STORMY_HEAVY = 8;

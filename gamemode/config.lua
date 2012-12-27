@@ -152,7 +152,7 @@ GM.Config.hobownership 					= 0
 -- adminweapons - Who can spawn weapons: 0: admins only, 1: supadmins only, 2: no one
 GM.Config.adminweapons					= 1
 -- arrestspeed - Sets the max arrest speed.
-GM.Config.arrestspeed					= 120
+GM.Config.arrestspeed					= 200
 -- babygodtime - How long the babygod lasts
 GM.Config.babygodtime					= 5
 -- deathfee - the amount of money someone drops when dead.
@@ -182,7 +182,7 @@ GM.Config.maxdrugs						= 10
 -- maxfoods - Sets the max food cartons per Microwave owner.
 GM.Config.maxfoods						= 10
 -- maxlawboards - The maximum number of law boards the mayor can place.
-GM.Config.maxlawboards					= 2
+GM.Config.maxlawboards					= 4
 -- maxletters - Sets max letters.
 GM.Config.maxletters					= 10
 -- maxlotterycost - Maximum payment the mayor can set to join a lottery.
@@ -200,7 +200,7 @@ GM.Config.minlotterycost				= 1
 -- mprintamount - Value of the money printed by the money printer.
 GM.Config.mprintamount					= 10
 -- normalsalary - Sets the starting salary for newly joined players.
-GM.Config.normalsalary					= 45
+GM.Config.normalsalary					= 50
 -- npckillpay - Sets the money given for each NPC kill.
 GM.Config.npckillpay					= 0
 -- paydelay - Sets how long it takes before people get salary
@@ -238,6 +238,6 @@ GM.Config.wallettaxmin					= 1
 -- wallettaxtime - Time in seconds between taxing players. Requires server restart.
 GM.Config.wallettaxtime					= 600
 -- wantedtime - Number of seconds for which a player is wanted for.
-GM.Config.wantedtime					= 170
+GM.Config.wantedtime					= 600
 -- walkspeed - Sets the max walking speed.
 GM.Config.walkspeed						= 160

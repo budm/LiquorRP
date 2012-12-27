@@ -1,3 +1,47 @@
+AddEntity("Pot Plant",{ --Invisible still
+ent = "weed_plant",
+model = "models/nater/weedplant_pot_planted.mdl",
+price = 75,
+max = 5,
+cmd = "/buyweed",
+allowed = {TEAM_DRUGDEALER}
+})
+
+AddEntity("Cannabis Seed",{
+ent = "seed_weed",
+model = "models/katharsmodels/contraband/zak_wiet/zak_seed.mdl",
+price = 150,
+max = 15,
+cmd = "/buyseed",
+allowed = {TEAM_DRUGDEALER}
+})
+
+AddEntity("Cell Phone",{
+ ent = "phone",
+ model = "models/weapons/w_camphone.mdl",
+ price =10,
+ max = 1,
+ cmd = "/buyphone",
+})
+
+
+
+AddEntity("Alcohol",{
+ ent = "durgz_alcohol",
+ model = "models/drug_mod/alcohol_can.mdl",
+ price =10,
+ max = 15,
+ cmd = "/buyalcohol",
+})
+
+AddEntity("Cigarettes",{
+ ent = "durgz_cigarette",
+ model = "models/closedboxshib.mdl",
+ price =15,
+ max = 15,
+ cmd = "/buycigs",
+})
+
 AddEntity("Big Moonshine Still",{
  ent = "big_still",
  model = "models/props/CS_Militia/furnace01.mdl",
@@ -8,7 +52,7 @@ AddEntity("Big Moonshine Still",{
 
 AddEntity("Small Moonshine Still",{
  ent = "small_still",
- model = "models/props_C17/FurnitureFireplace001.mdl",
+ model = "models/props_C17/FurnitureFireplace001a.mdl",
  price =50,
  max = 2,
  cmd = "/buysmallstill",

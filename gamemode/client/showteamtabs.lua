@@ -678,6 +678,18 @@ function GM:RPINVTab()
 
 		backgrndcat = RPINVTABpanel:Add("DCollapsibleCategory")
 		backgrndcat:SetSize(230, 130)
+		
+		frame.Label1 = vgui.Create("Label", frame)
+		frame.Label1:SetPos(50,50)
+		frame.Label1:SetText("Lua is alive!")
+		frame.Label1:SizeToContents()
+
+		frame.Label1 = vgui.Create("Label2", frame)
+		frame.Label1:SetPos(50,50)
+		frame.Label1:SetText("Lua is alive2!")
+		frame.Label1:SizeToContents()
+		
+
 	end
 	RPINVTABpanel:SetSkin("DarkRP")
 	return RPINVTABpanel

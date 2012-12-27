@@ -1,5 +1,5 @@
-GM.Version = "2.4.3"
-GM.Name = "DarkRP"
+GM.Version = "0.0.1"
+GM.Name = "LiquorRP"
 GM.Author = "By Rickster, Updated: Pcwizdan, Sibre, philxyz, [GNC] Matt, Chrome Bolt, FPtje Falco, Eusion, Drakehawke"
 
 CUR = "$"
@@ -9,8 +9,8 @@ if table.Count(file.Find("*", "cstrike")) == 0 then
 	timer.Create("TheresNoCSS", 10, 0, function()
 		for k,v in pairs(player.GetAll()) do
 			v:ChatPrint("Counter Strike: Source is incorrectly installed!")
-			v:ChatPrint("You need it for DarkRP to work!")
-			print("Counter Strike: Source is incorrectly installed!\nYou need it for DarkRP to work!")
+			v:ChatPrint("You need it for LiquorRP to work!")
+			print("Counter Strike: Source is incorrectly installed!\nYou need it for Liquor to work!")
 		end
 	end)
 end
@@ -59,6 +59,8 @@ AddCSLuaFile("shared/language.lua")
 AddCSLuaFile("shared/MakeThings.lua")
 AddCSLuaFile("shared/Workarounds.lua")
 
+AddCSLuaFile("modules/drugz_resource.lua")
+
 -- Earthquake Mod addon
 resource.AddFile("sound/earthquake.mp3")
 util.PrecacheSound("earthquake.mp3")
@@ -84,6 +86,8 @@ include("server/admincc.lua")
 include("shared/animations.lua")
 include("shared/commands.lua")
 include("shared/entity.lua")
+include("shared/sh_newspaper.lua")
+include("shared/sh_post.lua")
 
 include("shared/language.lua")
 include("shared/MakeThings.lua")
