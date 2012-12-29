@@ -51,7 +51,7 @@ TEAM_POLICE = AddExtraTeam("Police", {
 		The Battering Ram can also unfreeze frozen props(if enabled).
 		Type /wanted <name> to alert the public to this criminal
 		OR go to tab and warrant someone by clicking the warrant button]],
-	weapons = {"arrest_stick", "unarrest_stick", "stunstick", "door_ram", "weaponchecker"},
+	weapons = {"arrest_stick", "unarrest_stick", "stunstick", "door_ram"},
 	command = "cp",
 	max = 12,
 	salary = 65,
@@ -140,6 +140,24 @@ TEAM_MEDIC = AddExtraTeam("Medic", {
 	hasLicense = false
 })
 
+TEAM_CHEM = AddExtraTeam("Chemical Engineer", {
+	color = Color(255, 0, 255, 255),
+	model = "models/player/Hostage/hostage_04.mdl",
+	description = [[With your chemical knowledge,
+		you make synthetic drugs, to sell to the
+		drug dealer. You make, drugs such as 
+		Aspirin, Ketimine, and meth. Just don't
+		get caught. You can serve a hefty amount of
+		time in jail.]],
+	weapons = {""},
+	command = "engineer",
+	max = 3,
+	salary = 25,
+	admin = 0,
+	vote = false,
+	hasLicense = false
+})
+
 TEAM_CHIEF = AddExtraTeam("Civil Protection Chief", {
 	color = Color(20, 20, 255, 255),
 	model = "models/JesseV92/player/cs-go/ct_urban.mdl",
@@ -152,12 +170,12 @@ TEAM_CHIEF = AddExtraTeam("Civil Protection Chief", {
 		warrant for his/her arrest.
 		Type /wanted <name> to alert the public to this criminal
 		Type /jailpos to set the Jail Position]],
-	weapons = {"arrest_stick", "unarrest_stick", "stunstick", "door_ram", "weaponchecker"},
+	weapons = {"arrest_stick", "unarrest_stick", "stunstick", "door_ram"},
 	command = "chief",
 	max = 1,
 	salary = 75,
 	admin = 0,
-	vote = false,
+	vote = true,
 	hasLicense = true,
 	NeedToChangeFrom = TEAM_POLICE
 })
@@ -205,27 +223,16 @@ TEAM_HOBO = AddExtraTeam("Poor Drunk", {
 TEAM_DRUGDEALER = AddExtraTeam("Drug Dealer", {
 	color = Color(120, 120, 120, 255),
 	model = "models/player/Group01/Male_08.mdl",
-	description = [[The drug dealer can sell cannabis seeds, cocaine,
-	shrooms, pills, and lsd.]],
+	description = [[The drug dealer sells drugs.
+	]],
 	weapons = {},
 	command = "drugdealer",
 	max = 5,
-	salary = 0,
+	salary = 10,
 	admin = 0,
 	vote = false,
 	hasLicense = false
 })
-
-
-//ADD CUSTOM TEAMS UNDER THIS LINE:
-
-
-
-
-
-
-
-
 
 /*
 --------------------------------------------------------
@@ -259,43 +266,6 @@ AddAgenda("Police agenda", TEAM_MAYOR, {TEAM_CHIEF, TEAM_POLICE})
 --------------------------------------------------------
 -- Misc stuff for LiquorRP
 --------------------------------------------------------
-
-// Card values
-CARD_ACE = 1;
-CARD_2 = 2;
-CARD_3 = 3;
-CARD_4 = 4;
-CARD_5 = 5;
-CARD_6 = 6;
-CARD_7 = 7;
-CARD_8 = 8;
-CARD_9 = 9;
-CARD_10 = 10;
-CARD_JACK = 11;
-CARD_QUEEN = 12;
-CARD_KING = 13;
-
-// Card types
-CARD_DIAMOND = 13;
-CARD_HEART = 14;
-CARD_CLUB = 15;
-CARD_SPADE = 16;
-
-// Card counts
-GM.CardValues = {};
-GM.CardValues[CARD_ACE] = 11;
-GM.CardValues[CARD_2] = 2;
-GM.CardValues[CARD_3] = 3;
-GM.CardValues[CARD_4] = 4;
-GM.CardValues[CARD_5] = 5;
-GM.CardValues[CARD_6] = 6;
-GM.CardValues[CARD_7] = 7;
-GM.CardValues[CARD_8] = 8;
-GM.CardValues[CARD_9] = 9;
-GM.CardValues[CARD_10] = 10;
-GM.CardValues[CARD_JACK] = 10;
-GM.CardValues[CARD_QUEEN] = 10;
-GM.CardValues[CARD_KING] = 10;
 
 // Weather
 WEATHER_NORMAL = 1;
