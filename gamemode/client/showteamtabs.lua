@@ -677,17 +677,8 @@ function GM:RPINVTab()
 		self:Clear(true)
 
 		backgrndcat = RPINVTABpanel:Add("DCollapsibleCategory")
-		backgrndcat:SetSize(230, 130)
+		backgrndcat:SetSize(230, 230)
 		
-		frame.Label1 = vgui.Create("Label", frame)
-		frame.Label1:SetPos(50,50)
-		frame.Label1:SetText("Lua is alive!")
-		frame.Label1:SizeToContents()
-
-		frame.Label1 = vgui.Create("Label2", frame)
-		frame.Label1:SetPos(50,50)
-		frame.Label1:SetText("Lua is alive2!")
-		frame.Label1:SizeToContents()
 		
 
 	end
@@ -702,7 +693,12 @@ function GM:HELPTab()
 		self:Clear(true)
 
 		backgrndcat = HELPTabpanel:Add("DCollapsibleCategory")
-		backgrndcat:SetSize(230, 130)
+		backgrndcat:SetSize(230, 330)
+		
+		backgrndcat.Label1 = vgui.Create("Label", backgrndcat)
+		backgrndcat.Label1:SetPos(50,50)
+		backgrndcat.Label1:SetText("Lua is alive!")
+		backgrndcat.Label1:SizeToContents()
 	end
 	HELPTabpanel:SetSkin("DarkRP")
 	return HELPTabpanel

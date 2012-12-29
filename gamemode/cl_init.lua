@@ -88,7 +88,6 @@ include("client/helpvgui.lua")
 include("client/hud.lua")
 include("client/showteamtabs.lua")
 include("client/vgui.lua")
-include("client/cl_buddies.lua")
 
 include("shared/animations.lua")
 include("shared/commands.lua")
@@ -489,7 +488,7 @@ concommand.Add("rp_getvehicles", GetAvailableVehicles)
 local function AdminLog(um)
 	local colour = Color(um:ReadShort(), um:ReadShort(), um:ReadShort())
 	local text = um:ReadString() .. "\n"
-	MsgC(Color(255,0,0), "[DarkRP] ")
+	MsgC(Color(255,0,0), "[LiquorRP] ")
 	MsgC(colour, text)
 end
 usermessage.Hook("DRPLogMsg", AdminLog)
@@ -626,73 +625,16 @@ PhilXYZ
 Chromebolt A.K.A. unib5 (STEAM_0:1:19045957)
 Falco A.K.A. FPtje (STEAM_0:0:8944068)
 Eusion (STEAM_0:0:20450406)
-Drakehawke (STEAM_0:0:22342869)]]
+Drakehawke (STEAM_0:0:22342869)
+
+LiquorRP:
+Marvin a.k.a. budm]]
 
 local function credits(um)
 	chat.AddText(Color(255,0,0,255), "CREDITS FOR DARKRP", Color(0,0,255,255), creds)
 end
 usermessage.Hook("DarkRP_Credits", credits)
 
--- DarkRP plugin for FAdmin. It's this simple to make a plugin. If FAdmin isn't installed, this code won't bother anyone
-include(GM.FolderName.."/gamemode/shared/fadmin_darkrp.lua")
-
-if not FAdmin or not FAdmin.StartHooks then return end
-FAdmin.StartHooks["DarkRP"] = function()
-	-- DarkRP information:
-	FAdmin.ScoreBoard.Player:AddInformation("Steam name", function(ply) return ply:SteamName() end, true)
-	FAdmin.ScoreBoard.Player:AddInformation("Money", function(ply) if LocalPlayer():IsAdmin() and ply.DarkRPVars and ply.DarkRPVars.money then return "$"..ply.DarkRPVars.money end end)
-	FAdmin.ScoreBoard.Player:AddInformation("Wanted", function(ply) if ply.DarkRPVars and ply.DarkRPVars.wanted then return tostring(ply.DarkRPVars["wantedReason"] or "N/A") end end)
-	FAdmin.ScoreBoard.Player:AddInformation("Community link", function(ply) return FAdmin.SteamToProfile(ply:SteamID()) end)
-
-	-- Warrant
-	FAdmin.ScoreBoard.Player:AddActionButton("Warrant", "FAdmin/icons/Message",	Color(0, 0, 200, 255),
-		function(ply) local t = LocalPlayer():Team() return t == TEAM_POLICE or t == TEAM_MAYOR or t == TEAM_CHIEF end,
-		function(ply, button)
-			Derma_StringRequest("Warrant reason", "Enter the reason for the warrant", "", function(Reason)
-				LocalPlayer():ConCommand("say /warrant ".. ply:UserID().." ".. Reason)
-			end)
-		end)
-
-	--wanted
-	FAdmin.ScoreBoard.Player:AddActionButton(function(ply)
-			return ((ply.DarkRPVars.wanted and "Unw") or "W") .. "anted"
-		end,
-		function(ply) return "FAdmin/icons/jail", ply.DarkRPVars.wanted and "FAdmin/icons/disable" end,
-		Color(0, 0, 200, 255),
-		function(ply) local t = LocalPlayer():Team() return t == TEAM_POLICE or t == TEAM_MAYOR or t == TEAM_CHIEF end,
-		function(ply, button)
-			if not ply.DarkRPVars.wanted  then
-				Derma_StringRequest("wanted reason", "Enter the reason to arrest this player", "", function(Reason)
-					LocalPlayer():ConCommand("say /wanted ".. ply:UserID().." ".. Reason)
-				end)
-			else
-				LocalPlayer():ConCommand("say /unwanted ".. ply:UserID())
-			end
-		end)
-
-	--Teamban
-	local function teamban(ply, button)
-
-		local menu = DermaMenu()
-		local Title = vgui.Create("DLabel")
-		Title:SetText("  Jobs:\n")
-		Title:SetFont("UiBold")
-		Title:SizeToContents()
-		Title:SetTextColor(color_black)
-		local command = (button.TextLabel:GetText() == "Unban from job") and "rp_teamunban" or "rp_teamban"
-
-		menu:AddPanel(Title)
-		for k,v in SortedPairsByMemberValue(RPExtraTeams, "name") do
-			menu:AddOption(v.name, function() RunConsoleCommand(command, ply:UserID(), k) end)
-		end
-		menu:Open()
-	end
-	FAdmin.ScoreBoard.Player:AddActionButton("Ban from job", "FAdmin/icons/changeteam", Color(200, 0, 0, 255),
-	function(ply) return FAdmin.Access.PlayerHasPrivilege(LocalPlayer(), "rp_commands", ply) end, teamban)
-
-	FAdmin.ScoreBoard.Player:AddActionButton("Unban from job", function() return "FAdmin/icons/changeteam", "FAdmin/icons/disable" end, Color(200, 0, 0, 255),
-	function(ply) return FAdmin.Access.PlayerHasPrivilege(LocalPlayer(), "rp_commands", ply) end, teamban)
-end
 
 -- These fonts used to exist in GMod 12 but were removed in 13.
 surface.CreateFont("Trebuchet18", {

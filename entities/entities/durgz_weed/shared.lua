@@ -14,10 +14,6 @@ ENT.TRANSITION_TIME = 6
 
 if(CLIENT)then
 	
-	
-	killicon.Add("durgz_weed","killicons/durgz_weed_killicon",Color( 255, 80, 0, 255 ))
-	
-	
 	local TRANSITION_TIME = ENT.TRANSITION_TIME; --transition effect from sober to high, high to sober, in seconds how long it will take etc.
 	local HIGH_INTENSITY = 0.77; --1 is max, 0 is nothing at all
 	

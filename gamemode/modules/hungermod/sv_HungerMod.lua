@@ -5,7 +5,7 @@ include(GM.FolderName.."/gamemode/modules/hungermod/sv_player.lua")
 local HM = { }
 local FoodItems = { }
 
-GM.Config.hungermod = false
+GM.Config.hungermod = true
 GM.Config.foodspawn = true
 GM.Config.foodpay = true
 GM.Config.foodcost = 15

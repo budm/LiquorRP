@@ -1,8 +1,25 @@
 ------------------------------------------------------------
   --------------      LiquorRP Entities      --------------
    -------------------------------------------------------
+AddEntity("Cocaine",{
+ent = "durgz_cocaine",
+model = "models/cocn.mdl",
+price = 100,
+max = 5,
+cmd = "/buycocaine",
+allowed = {TEAM_DRUGDEALER}
+})   
    
-AddEntity("Pot Plant (INVISIBLE)",{
+AddEntity("Aspirin Lab",{
+ent = "aspirin_lab",
+model = "models/props_lab/crematorcase.mdl",
+price = 400,
+max = 2,
+cmd = "/buyaspirinlab",
+allowed = {TEAM_DRUGDEALER}
+})   
+   
+AddEntity("Pot Plant",{
 ent = "weed_plant",
 model = "models/nater/weedplant_pot_planted.mdl",
 price = 75,

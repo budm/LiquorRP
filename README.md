@@ -21,7 +21,7 @@ Proposed Changes:
   
   *Inclusion of a illegal & Legal alcohol market
   
-  *integration of drugs into the market
+  *integration of drugs into the market ( Mostly Complete as of Commit #8)
   
   *Integration of help into the F4 Menu (began)
   

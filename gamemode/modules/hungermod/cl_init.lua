@@ -17,7 +17,7 @@ AddFoodItem("bottle3", "models/props_junk/garbage_glassbottle003a.mdl", 10)
 AddFoodItem("orange", "models/props/cs_italy/orange.mdl", 20)
 
 -- hungermod - Enable/disable hunger mod
-GAMEMODE.Config.hungermod = false
+GAMEMODE.Config.hungermod = true
 -- foodspawn - Whether players(non-cooks) can spawn food props or not
 GAMEMODE.Config.foodspawn = true
 -- foodspecialcost <1 or 0> - Enable/disable whether spawning food props have a special cost

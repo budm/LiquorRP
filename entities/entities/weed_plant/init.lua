@@ -77,10 +77,13 @@ self.Entity:SetModel("models/nater/weedplant_pot_dirt.mdl")
 local SpawnPos = self.Entity:GetPos()
 
 local WeedBag = ents.Create("durgz_weed")
+local SeedBag = ents.Create("seed_weed")
 
 WeedBag:SetPos(SpawnPos)
+SeedBag:SetPos(SpawnPos)
 
 WeedBag:Spawn()
+SeedBag:Spawn() --Temporarily Just creates one bag of weed and one seed. Later It will create Random amounts (0-4) Weed, (1-3)seed 
 
 end
 
