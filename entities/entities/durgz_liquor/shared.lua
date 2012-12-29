@@ -1,13 +1,13 @@
 ENT.Type = "anim"
 ENT.Base = "durgz_base"
-ENT.PrintName = "Alcohol"
-ENT.Nicknames = {"booze", "beer", "alcohol", "Bud Light"}
+ENT.PrintName = "Liquor"
+ENT.Nicknames = {"moonshine", "ethenol", "corn whiskey"}
 ENT.OverdosePhrase = {"drank too much", "got poisoned on"}
-ENT.Author = "cheesylard (inspired by ninjers)"
+ENT.Author = "budm"
 ENT.Category = "Drugs"
 ENT.Spawnable = true
 ENT.AdminSpawnable = true 
-ENT.Information	 = "Drink your troubles away..." 
+ENT.Information	 = "get weird..." 
 
 ENT.TRANSITION_TIME = 6
 

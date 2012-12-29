@@ -78,16 +78,13 @@ end
 function ENT:CreateMoneybag()
 	if not IsValid(self) or self:IsOnFire() then return end
 
-	local MoneyPos = self:GetPos()
+		local SpawnPos = self.Entity:GetPos()
 
-	if math.random(1, 38) == 3 then self:BurstIntoFlames() end
+		local bottle = ents.Create("durgz_alcohol")
 
-	local amount = GAMEMODE.Config.mprintamount
-	if amount == 0 then
-		amount = 10
-	end
+		bottle:SetPos(SpawnPos)
 
-	DarkRPCreateMoneyBag(Vector(MoneyPos.x + 15, MoneyPos.y, MoneyPos.z + 15), amount)
+		bottle:Spawn()
 	timer.Simple(math.random(360, 480), function() PrintMore(self) end)
 end
 

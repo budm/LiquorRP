@@ -12,7 +12,7 @@ allowed = {TEAM_DRUGDEALER}
    
 AddEntity("Aspirin Lab",{
 ent = "aspirin_lab",
-model = "models/props_lab/crematorcase.mdl",
+model = "models/props/de_nuke/PowerPlantTank.mdl",
 price = 400,
 max = 2,
 cmd = "/buyaspirinlab",

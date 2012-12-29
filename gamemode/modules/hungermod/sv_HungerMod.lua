@@ -9,7 +9,7 @@ GM.Config.hungermod = true
 GM.Config.foodspawn = true
 GM.Config.foodpay = true
 GM.Config.foodcost = 15
-GM.Config.hungerspeed = 2
+GM.Config.hungerspeed = 0.75
 GM.Config.starverate = 3
 
 local function AddFoodItem(name, mdl, amount)
@@ -46,12 +46,9 @@ end
 AddFoodItem("banana", "models/props/cs_italy/bananna.mdl", 10)
 AddFoodItem("bananabunch", "models/props/cs_italy/bananna_bunch.mdl", 20)
 AddFoodItem("melon", "models/props_junk/watermelon01.mdl", 20)
-AddFoodItem("glassbottle", "models/props_junk/GlassBottle01a.mdl", 20)
 AddFoodItem("popcan", "models/props_junk/PopCan01a.mdl", 5)
 AddFoodItem("plasticbottle", "models/props_junk/garbage_plasticbottle003a.mdl", 15)
 AddFoodItem("milk", "models/props_junk/garbage_milkcarton002a.mdl", 20)
-AddFoodItem("bottle1", "models/props_junk/garbage_glassbottle001a.mdl", 10)
-AddFoodItem("bottle2", "models/props_junk/garbage_glassbottle002a.mdl", 10)
 AddFoodItem("orange", "models/props/cs_italy/orange.mdl", 20)
 
 local function BuyFood(ply, args)
@@ -63,16 +60,6 @@ local function BuyFood(ply, args)
 	trace.filter = ply
 
 	local tr = util.TraceLine(trace)
-
-	if not GAMEMODE.Config.hungermod and ply:Team() ~= TEAM_COOK then
-		GAMEMODE:Notify(ply, 1, 4, string.format(LANGUAGE.disabled, "hungermod", ""))
-		return ""
-	end
-
-	if ply:Team() ~= TEAM_COOK and team.NumPlayers(TEAM_COOK) > 0 then
-		GAMEMODE:Notify(ply, 1, 4, string.format(LANGUAGE.unable, "/buyfood", "cooks"))
-		return ""
-	end
 
 	for k,v in pairs(FoodItems) do
 		if string.lower(args) == k then

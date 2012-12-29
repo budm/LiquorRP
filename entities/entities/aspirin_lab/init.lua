@@ -6,7 +6,7 @@ include("shared.lua")
 ENT.SeizeReward = 350
 
 function ENT:Initialize()
-	self:SetModel("models/props_lab/crematorcase.mdl")
+	self:SetModel("models/props/de_nuke/PowerPlantTank.mdl")
 	self:PhysicsInit(SOLID_VPHYSICS)
 	self:SetMoveType(MOVETYPE_VPHYSICS)
 	self:SetSolid(SOLID_VPHYSICS)

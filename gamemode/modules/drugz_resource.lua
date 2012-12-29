@@ -2,7 +2,7 @@
 --SERVER HOSTERS: Delete the line below if you don't want to make people have to download the DurgzMod models (or just put // in front of local).
 local DURGZ_ADD_FILES = true;
 --Delete the line below if you don't want to make people have to download the spawn icons. (or just put // in front of local).
-local ADD_SPAWN_ICONS = true;
+local ADD_SPAWN_ICONS = false;
 
 
 --Ignore this stuff if you don't Lua code.
