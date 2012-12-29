@@ -1,8 +1,0 @@
-"UnlitGeneric" 
-{ 
-	"$basetexture" "perp/bill_default"
-	"$vertexcolor" 1 
-	"$vertexalpha" 1 
-	"$nolod" 1
-	"$ignorez" 1
-} 
