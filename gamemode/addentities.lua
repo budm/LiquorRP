@@ -1,6 +1,6 @@
-------------------------------------------------------------
-  --------------      LiquorRP Entities      --------------
-   -------------------------------------------------------
+-----------------------------------------------------------
+ --------------      LiquorRP Entities      --------------
+  -------------------------------------------------------
 AddEntity("Cocaine",{
 ent = "durgz_cocaine",
 model = "models/cocn.mdl",
@@ -42,7 +42,7 @@ AddEntity("Television",{
  model = "models/props/cs_office/TV_plasma.mdl",
  price =100,
  max = 1,
- cmd = "/buytelevision",
+ cmd = "/buytelevision"
 })
 
 AddEntity("Cell Phone (INVISIBLE)",{
@@ -50,7 +50,7 @@ AddEntity("Cell Phone (INVISIBLE)",{
  model = "models/weapons/w_camphone.mdl",
  price =10,
  max = 1,
- cmd = "/buyphone",
+ cmd = "/buyphone"
 })
 
 AddEntity("Alcohol",{
@@ -58,7 +58,7 @@ AddEntity("Alcohol",{
  model = "models/drug_mod/alcohol_can.mdl",
  price =10,
  max = 15,
- cmd = "/buyalcohol",
+ cmd = "/buyalcohol"
 })
 
 AddEntity("Cigarettes",{
@@ -66,7 +66,7 @@ AddEntity("Cigarettes",{
  model = "models/closedboxshib.mdl",
  price =15,
  max = 15,
- cmd = "/buycigs",
+ cmd = "/buycigs"
 })
 
 AddEntity("Big Moonshine Still",{
@@ -74,7 +74,7 @@ AddEntity("Big Moonshine Still",{
  model = "models/props/CS_Militia/furnace01.mdl",
  price =100,
  max = 2,
- cmd = "/buybigstill",
+ cmd = "/buybigstill"
 })
 
 AddEntity("Small Moonshine Still",{
@@ -82,7 +82,7 @@ AddEntity("Small Moonshine Still",{
  model = "models/props_C17/FurnitureFireplace001a.mdl",
  price =50,
  max = 2,
- cmd = "/buysmallstill",
+ cmd = "/buysmallstill"
 })
 
 AddEntity("Toilet Wine",{
@@ -90,7 +90,7 @@ AddEntity("Toilet Wine",{
  model = "models/props/CS_Militia/toilet.mdl",
  price =5,
  max = 10,
- cmd = "/buycheapwine",
+ cmd = "/buycheapwine"
 })
 
 AddEntity("Fermenation Bucket",{
@@ -98,7 +98,7 @@ AddEntity("Fermenation Bucket",{
  model = "models/props_junk/plasticbucket001a.mdl",
  price =50,
  max = 10,
- cmd = "/buybucket",
+ cmd = "/buybucket"
 })
 
 AddEntity("Beer Barrel",{
@@ -115,7 +115,7 @@ AddEntity("Knife", {
 	model = "models/weapons/w_knife_t.mdl",
 	price = 400,
 	max = 5,
-	cmd = "/buyknife",
+	cmd = "/buyknife"
 })
 
 AddEntity("Pill lab", {
@@ -140,6 +140,17 @@ AddEntity("Microwave", {
 	model = "models/props/cs_office/microwave.mdl",
 	price = 50,
 	max = 1,
-	cmd = "/buymicrowave",
+	cmd = "/buymicrowave"
 })
+
+-----------------------------------------------------------
+ --------------        LiquorRP Cars        --------------
+  -------------------------------------------------------
+AddCustomVehicle("Jeep",{
+ model = "models/buggy.mdl",
+ price = 600,
+max = 1,
+cmd = "/buyjeep
+})
+
 

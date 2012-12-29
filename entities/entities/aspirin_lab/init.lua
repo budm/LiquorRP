@@ -83,12 +83,7 @@ function ENT:Think()
 		self.SID = self.dt.price
 	end
 	if self.sparking then
-		local effectdata = EffectData()
-		effectdata:SetOrigin(self:GetPos())
-		effectdata:SetMagnitude(1)
-		effectdata:SetScale(1)
-		effectdata:SetRadius(1)
-		util.Effect("Smoke", effectdata)
+		
 	end
 end
 

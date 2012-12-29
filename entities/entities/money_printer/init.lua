@@ -106,9 +106,5 @@ function ENT:Think()
 	if not self.sparking then return end
 
 	local effectdata = EffectData()
-	effectdata:SetOrigin(self:GetPos())
-	effectdata:SetMagnitude(1)
-	effectdata:SetScale(1)
-	effectdata:SetRadius(2)
-	util.Effect("Smoke", effectdata)
+	
 end
