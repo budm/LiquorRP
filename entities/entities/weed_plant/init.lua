@@ -65,6 +65,16 @@ end
 end
 
 function ENT:Use()
+	if !activator:IsPlayer() then return false; end
+	if self.Entity:GetTable().Tapped then return false; end
+
+	if activator:Team() == TEAM_POLICE then
+		self.Entity:GetTable().Tapped = true;
+		
+		activator:AddCash(GAMEMODE.CopReward_Shrooms);
+		activator:PrintMessage(HUD_PRINTTALK, "You have been rewarded $" .. GAMEMODE.CopReward_Shrooms .. " for destroying a cannabis plant");
+		self:Remove();
+		return false;
 
 if self.Entity:GetNetworkedBool("Usable") == true then
 

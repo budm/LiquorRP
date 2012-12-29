@@ -139,7 +139,7 @@ function ENT:Say(pl, s)
 end
 
 function ENT:Realistic()
-	return server_settings.Bool( "durgz_roleplay", 0 );
+	--return server_settings.Bool( "durgz_roleplay", 0 );
 end
 
 function ENT:High(activator, caller)

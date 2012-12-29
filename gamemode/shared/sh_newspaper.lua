@@ -42,8 +42,6 @@ for i = 1, 100 do
 	end
 end
 
-table.insert(GM.ShopDatabase['shop_vice'].SoldItems, 'item_newspaper_' .. Newest);
-
 if CLIENT then
 	function GM.GetNewspaperOpen ( UMsg )
 		if GAMEMODE.InventoryPanel then

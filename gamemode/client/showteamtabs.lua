@@ -678,10 +678,146 @@ function GM:RPINVTab()
 
 		backgrndcat = RPINVTABpanel:Add("DCollapsibleCategory")
 		backgrndcat:SetSize(230, 230)
+		if not self.Owner:GetTable().Pocket or #self.Owner:GetTable().Pocket <= 0 then
+			backgrndcat.Label1 = vgui.Create("Label", backgrndcat)
+			backgrndcat.Label1:SetPos(50,50)
+			backgrndcat.Label1:SetText("Your Inventory is Empty....")
+			backgrndcat.Label1:SizeToContents()
+		end
 		
-		
+	for k,v in pairs(self.Owner:GetTable().Pocket) do
+		if not IsValid(v) then
+			self.Owner:GetTable().Pocket[k] = nil
+			self.Owner:GetTable().Pocket = table.ClearKeys(self.Owner:GetTable().Pocket)
+			if #self.Owner:GetTable().Pocket <= 0 then -- Recheck after the entities have been validated.
+				backgrndcat.Label1:SetText("Your Inventory is Empty....")
+				return
+			end
+		end
+	end
+	
+	if CLIENT then
+	local function StorePocketItem(um)
+		LocalPlayer():GetTable().Pocket = LocalPlayer():GetTable().Pocket or {}
+
+		local ent = Entity(um:ReadShort())
+		if IsValid(ent) and not table.HasValue(LocalPlayer():GetTable().Pocket, ent) then
+			table.insert(LocalPlayer():GetTable().Pocket, ent)
+		end
+	end
+	usermessage.Hook("Pocket_AddItem", StorePocketItem)
+
+	local function RemovePocketItem(um)
+		LocalPlayer():GetTable().Pocket = LocalPlayer():GetTable().Pocket or {}
+
+		local ent = Entity(um:ReadShort())
+		for k,v in pairs(LocalPlayer():GetTable().Pocket) do
+			if v == ent then LocalPlayer():GetTable().Pocket[k] = nil end
+		end
+	end
+	usermessage.Hook("Pocket_RemoveItem", RemovePocketItem)
+
+	local frame
+	local function PocketMenu()
+		if frame and frame:IsValid() and frame:IsVisible() then return end
+		if LocalPlayer():GetActiveWeapon():GetClass() ~= "pocket" then return end
+		if not LocalPlayer():GetTable().Pocket then LocalPlayer():GetTable().Pocket = {} return end
+		for k,v in pairs(LocalPlayer():GetTable().Pocket) do if not IsValid(v) then table.remove(LocalPlayer():GetTable().Pocket, k) end end
+		if #LocalPlayer():GetTable().Pocket <= 0 then return end
+		LocalPlayer():GetTable().Pocket = table.ClearKeys(LocalPlayer():GetTable().Pocket)
+		frame = vgui.Create("DFrame")
+		frame:SetTitle("Drop item")
+		frame:SetVisible( true )
+		frame:MakePopup( )
+
+		local items = LocalPlayer():GetTable().Pocket
+		local function Reload()
+			frame:SetSize( #items * 64, 90 )
+			frame:Center()
+			for k,v in pairs(items) do
+				if not IsValid(v) then
+					items[k] = nil
+					for a,b in pairs(LocalPlayer().Pocket) do
+						if b == v or not IsValid(b) then
+							LocalPlayer():GetTable().Pocket[a] = nil
+						end
+					end
+					items = table.ClearKeys(items)
+					frame:Close()
+					PocketMenu()
+					break
+				end
+				local icon = vgui.Create("SpawnIcon", frame)
+				icon:SetPos((k-1) * 64, 25)
+				icon:SetModel(v:GetModel())
+				icon:SetSize(64, 64)
+				icon:SetToolTip()
+				icon.DoClick = function()
+					icon:SetToolTip()
+					RunConsoleCommand("_RPSpawnPocketItem", v:EntIndex())
+					items[k] = nil
+					for a,b in pairs(LocalPlayer().Pocket) do
+						if b == v then
+							LocalPlayer():GetTable().Pocket[a] = nil
+						end
+					end
+					if #items == 0 then
+						frame:Close()
+						return
+					end
+					items = table.ClearKeys(items)
+					Reload()
+					LocalPlayer():GetActiveWeapon():SetWeaponHoldType("pistol")
+					timer.Simple(0.2, function() if LocalPlayer():GetActiveWeapon():IsValid() then LocalPlayer():GetActiveWeapon():SetWeaponHoldType("normal") end end)
+				end
+			end
+		end
+		Reload()
+		frame:SetSkin("DarkRP")
+	end
+	usermessage.Hook("StartPocketMenu", PocketMenu)
+elseif SERVER then
+	local function Spawn(ply, cmd, args)
+		if ply:GetActiveWeapon():GetClass() ~= "pocket" then
+			return
+		end
+		if ply:GetTable().Pocket and IsValid(Entity(tonumber(args[1]))) then
+			local ent = Entity(tonumber(args[1]))
+			if not table.HasValue(ply.Pocket, ent) then return end
+
+			for k,v in pairs(ply:GetTable().Pocket) do
+				if v == ent then
+					ply:GetTable().Pocket[k] = nil
+				end
+			end
+			ply:GetTable().Pocket = table.ClearKeys(ply:GetTable().Pocket)
+
+			ply:GetActiveWeapon():SetWeaponHoldType("pistol")
+			timer.Simple(0.2, function() if ply:GetActiveWeapon():IsValid() then ply:GetActiveWeapon():SetWeaponHoldType("normal") end end)
+
+			local trace = {}
+			trace.start = ply:EyePos()
+			trace.endpos = trace.start + ply:GetAimVector() * 85
+			trace.filter = ply
+			local tr = util.TraceLine(trace)
+			ent:SetMoveType(MOVETYPE_VPHYSICS)
+			ent:SetNoDraw(false)
+			ent:SetCollisionGroup(4)
+			ent:SetPos(tr.HitPos)
+			ent:SetSolid(SOLID_VPHYSICS)
+			ent.PhysgunPickup = nil
+			local phys = ent:GetPhysicsObject()
+			if phys:IsValid() then
+				phys:EnableCollisions(true)
+				phys:EnableMotion(true)
+				phys:Wake()
+			end
+			ent.PlayerUse = false
+		end
 
 	end
+end
+end	
 	RPINVTABpanel:SetSkin("DarkRP")
 	return RPINVTABpanel
 end

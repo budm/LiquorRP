@@ -55,7 +55,7 @@ AddEntity("Cell Phone (INVISIBLE)",{
 
 AddEntity("Beer",{
  ent = "durgz_alcohol",
- model = "models/drug_mod/alcohol_can.mdl",
+ model = "models/props_junk/garbage_glassbottle002a.mdl",
  price =10,
  max = 15,
  cmd = "/buybeer"
@@ -126,12 +126,12 @@ AddEntity("Beer Barrel",{
  allowed = {TEAM_GUN}
 })
 
-AddEntity("Knife", {
-	ent = "weapon_real_cs_knife",
-	model = "models/weapons/w_knife_t.mdl",
-	price = 400,
+AddEntity("Baseball bat", {
+	ent = "baseball_bat",
+	model = "models/weapons/w_basebat.mdl",
+	price = 100,
 	max = 5,
-	cmd = "/buyknife"
+	cmd = "/buybat"
 })
 
 AddEntity("Pill lab", {
@@ -166,7 +166,7 @@ AddCustomVehicle("Jeep",{
  model = "models/buggy.mdl",
  price = 600,
 max = 1,
-cmd = "/buyjeep
+cmd = "/buyjeep"
 })
 
 
