@@ -46,7 +46,7 @@ end
 function ENT:BurstIntoFlames()
 	GAMEMODE:Notify(self.dt.owning_ent, 0, 4, "Your beer is overheating!")
 	self.burningup = true
-	local burntime = math.random(8, 18)
+	local burntime = math.random(2, 6)
 	self:Ignite(burntime, 0)
 	timer.Simple(burntime, function() self:Fireball() end)
 end
@@ -80,7 +80,7 @@ function ENT:CreateMoneybag()
 
 	local MoneyPos = self:GetPos()
 
-	if math.random(1, 22) == 3 then self:BurstIntoFlames() end
+	if math.random(1, 38) == 3 then self:BurstIntoFlames() end
 
 	local amount = GAMEMODE.Config.mprintamount
 	if amount == 0 then
@@ -88,7 +88,7 @@ function ENT:CreateMoneybag()
 	end
 
 	DarkRPCreateMoneyBag(Vector(MoneyPos.x + 15, MoneyPos.y, MoneyPos.z + 15), amount)
-	timer.Simple(math.random(100, 350), function() PrintMore(self) end)
+	timer.Simple(math.random(360, 480), function() PrintMore(self) end)
 end
 
 function ENT:Think()

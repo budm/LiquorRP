@@ -65,16 +65,10 @@ function ENT:createDrug()
 	local drugPos = self:GetPos()
 	drug = ents.Create("durgz_aspirin")
 	drug:SetPos(Vector(drugPos.x,drugPos.y,drugPos.z + 35))
-	drug.dt.owning_ent = userb
-	drug.SID = userb.SID
 	drug.ShareGravgun = true
 	drug.nodupe = true
 	drug.dt.price = self.dt.price or 100
 	drug:Spawn()
-	if not userb.maxDrugs then
-		userb.maxDrugs = 0
-	end
-	userb.maxDrugs = userb.maxDrugs + 1
 	self.sparking = false
 end
 

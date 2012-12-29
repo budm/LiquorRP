@@ -53,12 +53,28 @@ AddEntity("Cell Phone (INVISIBLE)",{
  cmd = "/buyphone"
 })
 
-AddEntity("Alcohol",{
+AddEntity("Beer",{
  ent = "durgz_alcohol",
  model = "models/drug_mod/alcohol_can.mdl",
  price =10,
  max = 15,
- cmd = "/buyalcohol"
+ cmd = "/buybeer"
+})
+
+AddEntity("Wine",{
+ ent = "durgz_wine",
+ model = "models/props_junk/garbage_glassbottle003a.mdl",
+ price =10,
+ max = 15,
+ cmd = "/buywine"
+})
+
+AddEntity("Hard Liquor",{
+ ent = "durgz_liquor",
+ model = "models/props_junk/glassjug01.mdl",
+ price =10,
+ max = 15,
+ cmd = "/buyliquor"
 })
 
 AddEntity("Cigarettes",{

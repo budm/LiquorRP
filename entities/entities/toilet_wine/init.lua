@@ -25,7 +25,6 @@ function ENT:OnTakeDamage(dmg)
 	if self.damage <= 0 then
 		local rnd = math.random(1, 10)
 		if rnd < 3 then
-			self:BurstIntoFlames()
 		else
 			self:Destruct()
 			self:Remove()
@@ -40,31 +39,10 @@ function ENT:Destruct()
 	effectdata:SetOrigin(vPoint)
 	effectdata:SetScale(1)
 	util.Effect("Explosion", effectdata)
-	GAMEMODE:Notify(self.dt.owning_ent, 1, 4, "Your wine exploded... Next time, loosen the lid to let the CO2 out...")
+	GAMEMODE:Notify(self.dt.owning_ent, 1, 4, "Your wine exploded... ")
 end
 
-function ENT:BurstIntoFlames()
-	GAMEMODE:Notify(self.dt.owning_ent, 0, 4, "Your wine is overheating!")
-	self.burningup = true
-	local burntime = math.random(8, 18)
-	self:Ignite(burntime, 0)
-	timer.Simple(burntime, function() self:Fireball() end)
-end
 
-function ENT:Fireball()
-	if not self:IsOnFire() then self.burningup = false return end
-	local dist = math.random(20, 280) -- Explosion radius
-	self:Destruct()
-	for k, v in pairs(ents.FindInSphere(self:GetPos(), dist)) do
-		if not v:IsPlayer() and not v:IsWeapon() and v:GetClass() ~= "predicted_viewmodel" and not v.IsMoneyPrinter then
-			v:Ignite(math.random(5, 22), 0)
-		elseif v:IsPlayer() then
-			local distance = v:GetPos():Distance(self:GetPos())
-			v:TakeDamage(distance / dist * 100, self, self)
-		end
-	end
-	self:Remove()
-end
 
 PrintMore = function(ent)
 	if not IsValid(ent) then return end
@@ -79,15 +57,13 @@ function ENT:CreateMoneybag()
 
 	local MoneyPos = self:GetPos()
 
-	if math.random(1, 22) == 3 then self:BurstIntoFlames() end
-
 	local amount = GAMEMODE.Config.mprintamount
 	if amount == 0 then
 		amount = 10
 	end
 
 	DarkRPCreateMoneyBag(Vector(MoneyPos.x + 15, MoneyPos.y, MoneyPos.z + 15), amount)
-	timer.Simple(math.random(100, 350), function() PrintMore(self) end)
+	timer.Simple(math.random(120, 240), function() PrintMore(self) end)
 end
 
 function ENT:Think()

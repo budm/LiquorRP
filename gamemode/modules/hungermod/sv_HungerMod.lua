@@ -52,7 +52,6 @@ AddFoodItem("plasticbottle", "models/props_junk/garbage_plasticbottle003a.mdl", 
 AddFoodItem("milk", "models/props_junk/garbage_milkcarton002a.mdl", 20)
 AddFoodItem("bottle1", "models/props_junk/garbage_glassbottle001a.mdl", 10)
 AddFoodItem("bottle2", "models/props_junk/garbage_glassbottle002a.mdl", 10)
-AddFoodItem("bottle3", "models/props_junk/garbage_glassbottle003a.mdl", 10)
 AddFoodItem("orange", "models/props/cs_italy/orange.mdl", 20)
 
 local function BuyFood(ply, args)

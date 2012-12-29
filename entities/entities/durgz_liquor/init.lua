@@ -2,7 +2,7 @@ AddCSLuaFile("shared.lua")
 include("shared.lua")
 
 
-ENT.MODEL = "models/drug_mod/alcohol_can.mdl"
+ENT.MODEL = "models/props_junk/glassjug01.mdl"
 
 
 ENT.LASTINGEFFECT = 45; --how long the high lasts in seconds
@@ -10,7 +10,7 @@ ENT.LASTINGEFFECT = 45; --how long the high lasts in seconds
 
 /*
 
-    pl:ConCommand("pp_motionblur 0.08")  
+    pl:ConCommand("pp_motionblur 0.80")  
     pl:ConCommand("pp_motionblur_addalpha 0.05")  
     pl:ConCommand("pp_motionblur_delay 0.035")  
     pl:ConCommand("pp_motionblur_drawalpha 1.00")  
