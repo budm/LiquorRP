@@ -33,7 +33,7 @@ if(CLIENT)then
 				local c = CurTime();
 				local pf = (c-s) / (e-s);
 				
-				DrawMotionBlur( 0.03, pf*HIGH_INTENSITY, 0);
+				DrawMotionBlur( 0.01, pf*HIGH_INTENSITY, 0);
 				
 			elseif( pl:GetNetworkedFloat("durgz_alcohol_high_end") - TRANSITION_TIME < CurTime() )then
 			
@@ -42,11 +42,11 @@ if(CLIENT)then
 				local c = CurTime();
 				local pf = 1 - (c-s) / (e-s);
 				
-				DrawMotionBlur( 0.03, pf*HIGH_INTENSITY, 0);
+				DrawMotionBlur( 0.01, pf*HIGH_INTENSITY, 0);
 				
 			else
 				
-				DrawMotionBlur( 0.03, HIGH_INTENSITY, 0);
+				DrawMotionBlur( 0.01, HIGH_INTENSITY, 0);
 				
 			end
 			

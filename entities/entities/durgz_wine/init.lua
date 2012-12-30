@@ -47,26 +47,6 @@ function ENT:High(activator,caller)
 			end
 		end)
 	end
-	
-	--takes out the pistol and then shoots randomly
-	local oldwep = activator:GetActiveWeapon()
-	
-	if( !oldwep )then return; end
-	for id,wep in pairs(activator:GetWeapons())do
-		if( wep:GetClass() == "weapon_pistol" )then
-			activator:SelectWeapon("weapon_pistol")
-			timer.Simple(0.3, function()
-				if( !activator:GetActiveWeapon() || activator:GetNetworkedFloat("durgz_alcohol_high_end") < CurTime())then return end
-				activator:ConCommand("+attack")
-				timer.Simple(0.1, function()
-					activator:ConCommand("-attack")
-					if(oldwep == NULL || !oldwep || !activator:Alive())then return; end
-						activator:SelectWeapon(oldwep:GetClass()) --Timer Error: entities/durgz_alcohol/init.lua:65: Tried to use a NULL entity!
-
-				end)
-			end)
-		end
-	end
 end
 
 

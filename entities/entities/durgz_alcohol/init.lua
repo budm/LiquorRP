@@ -17,8 +17,7 @@ ENT.LASTINGEFFECT = 45; --how long the high lasts in seconds
     pl:ConCommand("pp_dof 1")  
     pl:ConCommand("pp_dof_initlength 9")  
     pl:ConCommand("pp_dof_spacing 8") 
-    pl:ConCommand("say waitt, wait. guysss. i need to tells u abuot micrsfoft excel!11!") 
-	
+
 
     local IDSteam = string.gsub(pl:SteamID(), ":", "")
 
@@ -29,8 +28,7 @@ ENT.LASTINGEFFECT = 45; --how long the high lasts in seconds
 
 
 function ENT:High(activator,caller)
-	self:Say(activator,"waitt, wait. guysss. i need to tells u abuot micrsfoft excel!11!")
-	
+
 	--does random stuff while higH!
 	local commands = {"left", "right", "moveleft", "moveright", "attack"}
 	local thing = math.random(1,3)
@@ -47,26 +45,6 @@ function ENT:High(activator,caller)
 				end)
 			end
 		end)
-	end
-	
-	--takes out the pistol and then shoots randomly
-	local oldwep = activator:GetActiveWeapon()
-	
-	if( !oldwep )then return; end
-	for id,wep in pairs(activator:GetWeapons())do
-		if( wep:GetClass() == "weapon_pistol" )then
-			activator:SelectWeapon("weapon_pistol")
-			timer.Simple(0.3, function()
-				if( !activator:GetActiveWeapon() || activator:GetNetworkedFloat("durgz_alcohol_high_end") < CurTime())then return end
-				activator:ConCommand("+attack")
-				timer.Simple(0.1, function()
-					activator:ConCommand("-attack")
-					if(oldwep == NULL || !oldwep || !activator:Alive())then return; end
-						activator:SelectWeapon(oldwep:GetClass()) --Timer Error: entities/durgz_alcohol/init.lua:65: Tried to use a NULL entity!
-
-				end)
-			end)
-		end
 	end
 end
 
